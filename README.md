@@ -1,7 +1,3 @@
-Sure, here is the text for the README:
-
----
-
 # Nextcloud Installation Script
 
 This script automates the installation and configuration of Nextcloud on an Ubuntu 22.04 server. It includes the setup of Apache, MariaDB, PHP 8.1, Redis, and Opcache. Additionally, it offers the option to install SSL certificates using Certbot.
@@ -29,11 +25,12 @@ This script automates the installation and configuration of Nextcloud on an Ubun
 
 1. **Download the script:**
    ```bash
-   wget https://example.com/install_nextcloud.sh
+   git clone https://github.com/ZeroPingLLC/nextcloud.git
    ```
 
 2. **Make the script executable:**
    ```bash
+   cd nextcloud
    chmod +x install_nextcloud.sh
    ```
 
@@ -69,7 +66,3 @@ This script automates the installation and configuration of Nextcloud on an Ubun
 - Verify firewall rules if you have connectivity issues.
 
 For any questions or support, contact [support@zeroping.sh](mailto:support@zeroping.sh).
-
----
-
-This README text provides comprehensive instructions and information about the script, ensuring users can easily understand and use it.
