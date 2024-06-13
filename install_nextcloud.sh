@@ -54,16 +54,10 @@ install_nextcloud() {
 
     echo "Starting and securing MariaDB..."
     sudo systemctl start mariadb || { echo "Failed to start MariaDB"; exit 1; }
-    sudo mysql -u root <<EOF
-UPDATE mysql.user SET Password=PASSWORD('${MARIADB_PASSWORD}') WHERE User='root';
-DELETE FROM mysql.user WHERE User='';
-DROP DATABASE IF EXISTS test;
-DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
+    sudo mysql -u root -p <<EOF
+UPDATE mysql.user SET authentication_string=null WHERE User='root';
 FLUSH PRIVILEGES;
-EOF
-
-    echo "Creating MariaDB database and user..."
-    sudo mysql -u root -p"${MARIADB_PASSWORD}" <<EOF
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '${MARIADB_PASSWORD}';
 CREATE DATABASE ${DB_NAME};
 CREATE USER '${MARIADB_USER}'@'localhost' IDENTIFIED BY '${MARIADB_PASSWORD}';
 GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO '${MARIADB_USER}'@'localhost';
