@@ -23,34 +23,37 @@ This script automates the installation and configuration of Nextcloud on an Ubun
 
 ## Usage
 
-1. **Download the script:**
+1. **Clone the repository:**
    ```bash
    git clone https://github.com/ZeroPingLLC/nextcloud.git
    ```
 
-2. **Make the script executable:**
+2. **Navigate to the script directory:**
    ```bash
    cd nextcloud
+   ```
+
+3. **Make the script executable:**
+   ```bash
    chmod +x install_nextcloud.sh
    ```
 
-3. **Run the script:**
+4. **Run the script:**
    ```bash
    sudo ./install_nextcloud.sh
    ```
 
-4. **Follow the prompts:**
-   - Enter the Nextcloud username and password.
+5. **Follow the prompts:**
    - Enter the MariaDB username and password.
    - Enter the subdomain for your Nextcloud instance.
 
-5. **Optional SSL Installation:**
+6. **Optional SSL Installation:**
    - If you choose not to install SSL during the initial setup, you can run the script again to add SSL later.
 
 ## Script Details
 
-- **Function to gather user input:** Prompts the user for Nextcloud and MariaDB credentials, and the subdomain.
-- **Function to create installation log:** Records the details of the installation for future reference.
+- **Function to gather user input:** Prompts the user for MariaDB credentials and the subdomain.
+- **Function to create installation log:** Records the details of the installation, including the MariaDB password in plain text, for future reference.
 - **Function to install Nextcloud:** Installs and configures Apache, MariaDB, PHP 8.1, Redis, and Opcache. Downloads and sets up Nextcloud.
 - **Function to install SSL:** Optionally installs SSL certificates using Certbot.
 
