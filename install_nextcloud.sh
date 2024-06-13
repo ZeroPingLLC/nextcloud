@@ -13,9 +13,6 @@
 
 # Funktion zur Erfassung der Benutzereingaben
 get_user_input() {
-    read -p "Enter Nextcloud Username: " NEXTCLOUD_USER
-    read -sp "Enter Nextcloud Password: " NEXTCLOUD_PASSWORD
-    echo
     read -p "Enter MariaDB Username: " MARIADB_USER
     read -sp "Enter MariaDB Password: " MARIADB_PASSWORD
     echo
@@ -30,8 +27,6 @@ create_install_log() {
     cat << EOF > install.log
 Nextcloud Installation Log
 ===========================
-Nextcloud Username: ${NEXTCLOUD_USER}
-Nextcloud Password: [REDACTED]
 MariaDB Username: ${MARIADB_USER}
 MariaDB Password: [REDACTED]
 Database Name: ${DB_NAME}
@@ -54,7 +49,7 @@ install_nextcloud() {
 
     echo "Starting and securing MariaDB..."
     sudo systemctl start mariadb || { echo "Failed to start MariaDB"; exit 1; }
-    sudo mysql -u root -p <<EOF
+    sudo mysql -u root <<EOF
 UPDATE mysql.user SET authentication_string=null WHERE User='root';
 FLUSH PRIVILEGES;
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '${MARIADB_PASSWORD}';
