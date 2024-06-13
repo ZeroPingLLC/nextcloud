@@ -8,7 +8,7 @@ This script automates the installation and configuration of Nextcloud on an Ubun
 - Provided by **ZeroPing.sh**
 - License: Free for use
 - For support, contact: [support@zeroping.sh](mailto:support@zeroping.sh)
-- [![Watch the video](https://i.ibb.co/cQXQk17/imgimgigm.png)](https://www.youtube.com/watch?v=_KRrfq_h9rk)
+- Video Tutorial: (https://www.youtube.com/watch?v=_KRrfq_h9rk)
 
 
 ## Features
