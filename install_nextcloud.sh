@@ -22,6 +22,7 @@ get_user_input() {
     read -p "Enter Subdomain (e.g., nextcloud.example.com): " SUBDOMAIN
     IP_ADDRESS=$(hostname -I | awk '{print $1}')
     echo "Detected IP Address: $IP_ADDRESS"
+    DB_NAME="nextcloud"
 }
 
 # Funktion zur Erstellung des Installationsprotokolls
@@ -33,6 +34,7 @@ Nextcloud Username: ${NEXTCLOUD_USER}
 Nextcloud Password: [REDACTED]
 MariaDB Username: ${MARIADB_USER}
 MariaDB Password: [REDACTED]
+Database Name: ${DB_NAME}
 IP Address: ${IP_ADDRESS}
 Subdomain: ${SUBDOMAIN}
 ===========================
@@ -62,9 +64,9 @@ EOF
 
     echo "Creating MariaDB database and user..."
     sudo mysql -u root -p"${MARIADB_PASSWORD}" <<EOF
-CREATE DATABASE nextcloud;
+CREATE DATABASE ${DB_NAME};
 CREATE USER '${MARIADB_USER}'@'localhost' IDENTIFIED BY '${MARIADB_PASSWORD}';
-GRANT ALL PRIVILEGES ON nextcloud.* TO '${MARIADB_USER}'@'localhost';
+GRANT ALL PRIVILEGES ON ${DB_NAME}.* TO '${MARIADB_USER}'@'localhost';
 FLUSH PRIVILEGES;
 EOF
 
