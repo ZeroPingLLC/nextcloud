@@ -28,7 +28,7 @@ create_install_log() {
 Nextcloud Installation Log
 ===========================
 MariaDB Username: ${MARIADB_USER}
-MariaDB Password: [REDACTED]
+MariaDB Password: ${MARIADB_PASSWORD}
 Database Name: ${DB_NAME}
 IP Address: ${IP_ADDRESS}
 Subdomain: ${SUBDOMAIN}
