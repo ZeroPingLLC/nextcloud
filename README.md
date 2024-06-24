@@ -16,7 +16,7 @@ This script automates the installation and configuration of Nextcloud on an Ubun
 - Automated installation of Nextcloud and necessary dependencies.
 - Configuration of MariaDB, PHP 8.1, Redis, and Opcache.
 - Option to install SSL certificates using Certbot.
-- Detection of existing Nextcloud installation and option to add SSL later.
+- Detection of existing Nextcloud installation and option to add SSL later..
 
 ## Prerequisites
 
