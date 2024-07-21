@@ -66,7 +66,7 @@ This script automates the installation and configuration of Nextcloud on an Ubun
 
 ## Troubleshooting
 
-- If you encounter issues, check the log files located at `/var/log/apache2/` for Apache errors.
+- If you encounter issues, check the `log` files located at `/var/log/apache2/` for Apache errors.
 - For MariaDB issues, ensure the database and user are created correctly.
 - Verify firewall rules if you have connectivity issues.
 
